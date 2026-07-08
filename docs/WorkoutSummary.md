@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **UUID** |  | 
 **userId** | **UUID** |  | 
 **planWorkoutId** | **UUID** | 照哪個排課做；來源被刪時由 DB 設回 null | 
-**date** | **Date** |  | 
+**date** | **String** |  | 
 **startedAt** | **Date** |  | 
 **endedAt** | **Date** |  | 
 **overallFeeling** | **Int** |  | 

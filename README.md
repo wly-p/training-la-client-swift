@@ -31,10 +31,10 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PlanWorkoutsAPI* | [**createStandalonePlanWorkout2**](docs/PlanWorkoutsAPI.md#createstandaloneplanworkout2) | **POST** /v1/plan-workouts | 建立單獨排課（整包；或帶 from_specs_plan_workout_id 從範本積木複製）
+*PlanWorkoutsAPI* | [**createPlanWorkout**](docs/PlanWorkoutsAPI.md#createplanworkout) | **POST** /v1/plan-workouts | 建立單獨排課（整包；或帶 from_specs_plan_workout_id 從範本積木複製）
 *PlanWorkoutsAPI* | [**deletePlanWorkout**](docs/PlanWorkoutsAPI.md#deleteplanworkout) | **DELETE** /v1/plan-workouts/{id} | 刪除訓練計劃（級聯刪除其 sets）
 *PlanWorkoutsAPI* | [**getPlanWorkout**](docs/PlanWorkoutsAPI.md#getplanworkout) | **GET** /v1/plan-workouts/{id} | 取得一筆訓練計劃（單獨排課或掛在菜單底下者皆可）
-*PlanWorkoutsAPI* | [**listStandalonePlanWorkouts2**](docs/PlanWorkoutsAPI.md#liststandaloneplanworkouts2) | **GET** /v1/plan-workouts | 列出單獨排課（僅 plan_id 為 null 者；日期近到遠、無日期在後）
+*PlanWorkoutsAPI* | [**listPlanWorkouts**](docs/PlanWorkoutsAPI.md#listplanworkouts) | **GET** /v1/plan-workouts | 列出單獨排課（僅 plan_id 為 null 者；日期近到遠、無日期在後）
 *PlanWorkoutsAPI* | [**replacePlanWorkout**](docs/PlanWorkoutsAPI.md#replaceplanworkout) | **PUT** /v1/plan-workouts/{id} | 整包取代 name/status/date 與 sets（標記完成也走這裡）
 *PlansAPI* | [**createPlan**](docs/PlansAPI.md#createplan) | **POST** /v1/plans | 建立個人菜單（整包；或帶 from_specs_plan_id 從範本整套複製）
 *PlansAPI* | [**deletePlan**](docs/PlansAPI.md#deleteplan) | **DELETE** /v1/plans/{id} | 刪除菜單（級聯刪除其 workouts / sets）

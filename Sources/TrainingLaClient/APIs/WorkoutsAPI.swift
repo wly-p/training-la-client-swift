@@ -132,7 +132,7 @@ open class WorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [WorkoutSummary]
      */
-    open class func listWorkouts(from: Date? = nil, to: Date? = nil, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> [WorkoutSummary] {
+    open class func listWorkouts(from: String? = nil, to: String? = nil, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> [WorkoutSummary] {
         return try await listWorkoutsWithRequestBuilder(from: from, to: to, apiConfiguration: apiConfiguration).execute().body
     }
 
@@ -144,7 +144,7 @@ open class WorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[WorkoutSummary]> 
      */
-    open class func listWorkoutsWithRequestBuilder(from: Date? = nil, to: Date? = nil, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<[WorkoutSummary]> {
+    open class func listWorkoutsWithRequestBuilder(from: String? = nil, to: String? = nil, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<[WorkoutSummary]> {
         let localVariablePath = "/v1/workouts"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil

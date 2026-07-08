@@ -28,10 +28,14 @@ if [[ ! -f "$SPEC" ]]; then
 fi
 
 echo "generating from $SPEC (openapi-generator $ver)"
+# type-mappings date=String：swift6 產生器預設把 format:date 映成 Foundation.Date，
+# 序列化會輸出完整時間戳（2026-07-08T00:00:00Z），但後端 date 欄位只吃 "2026-07-08"。
+# 改映成 String 讓 App 直接送純日期字串。format:date-time 不受影響，維持 Date。
 openapi-generator generate \
   -i "$SPEC" \
   -g swift6 \
   -o . \
+  --type-mappings date=String \
   --additional-properties=projectName=TrainingLaClient,responseAs=AsyncAwait
 
 echo "done. review 'git diff', then commit + tag a version."

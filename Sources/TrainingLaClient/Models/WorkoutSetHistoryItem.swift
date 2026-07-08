@@ -15,7 +15,7 @@ public struct WorkoutSetHistoryItem: Sendable, Codable, Hashable {
     public static let repsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var id: UUID
     public var workoutId: UUID
-    public var date: Date
+    public var date: String
     public var exerciseId: UUID
     public var exerciseIndex: Int
     public var setIndex: Int
@@ -26,7 +26,7 @@ public struct WorkoutSetHistoryItem: Sendable, Codable, Hashable {
     public var targetReps: Int?
     public var createdAt: Date
 
-    public init(id: UUID, workoutId: UUID, date: Date, exerciseId: UUID, exerciseIndex: Int, setIndex: Int, weight: Weight, reps: Int, status: WorkoutSetStatus, targetWeight: Weight?, targetReps: Int?, createdAt: Date) {
+    public init(id: UUID, workoutId: UUID, date: String, exerciseId: UUID, exerciseIndex: Int, setIndex: Int, weight: Weight, reps: Int, status: WorkoutSetStatus, targetWeight: Weight?, targetReps: Int?, createdAt: Date) {
         self.id = id
         self.workoutId = workoutId
         self.date = date

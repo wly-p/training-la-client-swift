@@ -15,12 +15,12 @@ public struct PlanWorkoutInput: Sendable, Codable, Hashable {
     public var name: String?
     /** 未帶預設 not_started */
     public var status: PlanWorkoutStatus?
-    public var date: Date?
+    public var date: String?
     /** 僅建立時有效：從範本積木複製（此時 sets 必須為空） */
     public var fromSpecsPlanWorkoutId: UUID?
     public var sets: [TargetSetInput]?
 
-    public init(id: UUID? = nil, name: String? = nil, status: PlanWorkoutStatus? = nil, date: Date? = nil, fromSpecsPlanWorkoutId: UUID? = nil, sets: [TargetSetInput]? = nil) {
+    public init(id: UUID? = nil, name: String? = nil, status: PlanWorkoutStatus? = nil, date: String? = nil, fromSpecsPlanWorkoutId: UUID? = nil, sets: [TargetSetInput]? = nil) {
         self.id = id
         self.name = name
         self.status = status

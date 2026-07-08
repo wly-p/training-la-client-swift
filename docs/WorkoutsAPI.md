@@ -25,7 +25,7 @@ workout 存在即代表已發生；started_at / ended_at 為可選 metadata。 �
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import TrainingLaClient
 
-let workoutInput = WorkoutInput(id: 123, planWorkoutId: 123, date: Date(), startedAt: Date(), endedAt: Date(), overallFeeling: 123, note: "note_example", sets: [WorkoutSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, weight: Weight(value: 123, unit: "unit_example"), reps: 123, status: WorkoutSetStatus(), fromPlanSetId: 123, targetWeight: nil, targetReps: 123)]) // WorkoutInput | 
+let workoutInput = WorkoutInput(id: 123, planWorkoutId: 123, date: "date_example", startedAt: Date(), endedAt: Date(), overallFeeling: 123, note: "note_example", sets: [WorkoutSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, weight: Weight(value: 123, unit: "unit_example"), reps: 123, status: WorkoutSetStatus(), fromPlanSetId: 123, targetWeight: nil, targetReps: 123)]) // WorkoutInput | 
 
 // 建立訓練紀錄（workout + sets 整包）
 WorkoutsAPI.createWorkout(workoutInput: workoutInput) { (response, error) in
@@ -159,7 +159,7 @@ No authorization required
 
 # **listWorkouts**
 ```swift
-    open class func listWorkouts(from: Date? = nil, to: Date? = nil, completion: @escaping (_ data: [WorkoutSummary]?, _ error: Error?) -> Void)
+    open class func listWorkouts(from: String? = nil, to: String? = nil, completion: @escaping (_ data: [WorkoutSummary]?, _ error: Error?) -> Void)
 ```
 
 列出訓練紀錄（僅 header；可依日期區間過濾，date 新到舊）
@@ -169,8 +169,8 @@ No authorization required
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import TrainingLaClient
 
-let from = Date() // Date |  (optional)
-let to = Date() // Date |  (optional)
+let from = "from_example" // String |  (optional)
+let to = "to_example" // String |  (optional)
 
 // 列出訓練紀錄（僅 header；可依日期區間過濾，date 新到舊）
 WorkoutsAPI.listWorkouts(from: from, to: to) { (response, error) in
@@ -189,8 +189,8 @@ WorkoutsAPI.listWorkouts(from: from, to: to) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Date** |  | [optional] 
- **to** | **Date** |  | [optional] 
+ **from** | **String** |  | [optional] 
+ **to** | **String** |  | [optional] 
 
 ### Return type
 
@@ -220,7 +220,7 @@ No authorization required
 import TrainingLaClient
 
 let id = 987 // UUID | 
-let workoutInput = WorkoutInput(id: 123, planWorkoutId: 123, date: Date(), startedAt: Date(), endedAt: Date(), overallFeeling: 123, note: "note_example", sets: [WorkoutSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, weight: Weight(value: 123, unit: "unit_example"), reps: 123, status: WorkoutSetStatus(), fromPlanSetId: 123, targetWeight: nil, targetReps: 123)]) // WorkoutInput | 
+let workoutInput = WorkoutInput(id: 123, planWorkoutId: 123, date: "date_example", startedAt: Date(), endedAt: Date(), overallFeeling: 123, note: "note_example", sets: [WorkoutSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, weight: Weight(value: 123, unit: "unit_example"), reps: 123, status: WorkoutSetStatus(), fromPlanSetId: 123, targetWeight: nil, targetReps: 123)]) // WorkoutInput | 
 
 // 整包取代紀錄（header + sets 全數重建）
 WorkoutsAPI.replaceWorkout(id: id, workoutInput: workoutInput) { (response, error) in

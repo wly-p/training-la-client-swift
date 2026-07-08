@@ -16,8 +16,8 @@ open class PlanWorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PlanWorkout
      */
-    open class func createStandalonePlanWorkout2(planWorkoutInput: PlanWorkoutInput, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlanWorkout {
-        return try await createStandalonePlanWorkout2WithRequestBuilder(planWorkoutInput: planWorkoutInput, apiConfiguration: apiConfiguration).execute().body
+    open class func createPlanWorkout(planWorkoutInput: PlanWorkoutInput, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> PlanWorkout {
+        return try await createPlanWorkoutWithRequestBuilder(planWorkoutInput: planWorkoutInput, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -28,7 +28,7 @@ open class PlanWorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PlanWorkout> 
      */
-    open class func createStandalonePlanWorkout2WithRequestBuilder(planWorkoutInput: PlanWorkoutInput, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<PlanWorkout> {
+    open class func createPlanWorkoutWithRequestBuilder(planWorkoutInput: PlanWorkoutInput, apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<PlanWorkout> {
         let localVariablePath = "/v1/plan-workouts"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planWorkoutInput, codableHelper: apiConfiguration.codableHelper)
@@ -130,8 +130,8 @@ open class PlanWorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: [PlanWorkout]
      */
-    open class func listStandalonePlanWorkouts2(apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PlanWorkout] {
-        return try await listStandalonePlanWorkouts2WithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    open class func listPlanWorkouts(apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) async throws(ErrorResponse) -> [PlanWorkout] {
+        return try await listPlanWorkoutsWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
@@ -140,7 +140,7 @@ open class PlanWorkoutsAPI {
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<[PlanWorkout]> 
      */
-    open class func listStandalonePlanWorkouts2WithRequestBuilder(apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<[PlanWorkout]> {
+    open class func listPlanWorkoutsWithRequestBuilder(apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<[PlanWorkout]> {
         let localVariablePath = "/v1/plan-workouts"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil

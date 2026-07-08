@@ -25,7 +25,7 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import TrainingLaClient
 
-let planInput = PlanInput(id: 123, name: "name_example", description: "description_example", status: PlanStatus(), fromSpecsPlanId: 123, workouts: [PlanWorkoutInput(id: 123, name: "name_example", status: PlanWorkoutStatus(), date: Date(), fromSpecsPlanWorkoutId: 123, sets: [TargetSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, targetWeight: Weight(value: 123, unit: "unit_example"), targetReps: 123, restSec: 123)])]) // PlanInput | 
+let planInput = PlanInput(id: 123, name: "name_example", description: "description_example", status: PlanStatus(), fromSpecsPlanId: 123, workouts: [PlanWorkoutInput(id: 123, name: "name_example", status: PlanWorkoutStatus(), date: "date_example", fromSpecsPlanWorkoutId: 123, sets: [TargetSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, targetWeight: Weight(value: 123, unit: "unit_example"), targetReps: 123, restSec: 123)])]) // PlanInput | 
 
 // 建立個人菜單（整包；或帶 from_specs_plan_id 從範本整套複製）
 PlansAPI.createPlan(planInput: planInput) { (response, error) in
@@ -220,7 +220,7 @@ from_specs_plan_id 僅建立時有效，帶入會回 400；DB 原值保留不變
 import TrainingLaClient
 
 let id = 987 // UUID | 
-let planInput = PlanInput(id: 123, name: "name_example", description: "description_example", status: PlanStatus(), fromSpecsPlanId: 123, workouts: [PlanWorkoutInput(id: 123, name: "name_example", status: PlanWorkoutStatus(), date: Date(), fromSpecsPlanWorkoutId: 123, sets: [TargetSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, targetWeight: Weight(value: 123, unit: "unit_example"), targetReps: 123, restSec: 123)])]) // PlanInput | 
+let planInput = PlanInput(id: 123, name: "name_example", description: "description_example", status: PlanStatus(), fromSpecsPlanId: 123, workouts: [PlanWorkoutInput(id: 123, name: "name_example", status: PlanWorkoutStatus(), date: "date_example", fromSpecsPlanWorkoutId: 123, sets: [TargetSetInput(id: 123, exerciseId: 123, exerciseIndex: 123, setIndex: 123, targetWeight: Weight(value: 123, unit: "unit_example"), targetReps: 123, restSec: 123)])]) // PlanInput | 
 
 // 整包取代菜單（header + workouts/sets 全數重建；客戶端送完整狀態）
 PlansAPI.replacePlan(id: id, planInput: planInput) { (response, error) in

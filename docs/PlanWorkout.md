@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **orderIndex** | **Int** |  | 
 **status** | [**PlanWorkoutStatus**](PlanWorkoutStatus.md) |  | 
-**date** | **Date** | null＝循環（依 order_index 輪替）；有值＝指定日 | 
+**date** | **String** | null＝循環（依 order_index 輪替）；有值＝指定日 | 
 **fromSpecsPlanWorkoutId** | **UUID** | 範本來源（複製建立時記錄） | 
 **createdAt** | **Date** |  | 
 **updatedAt** | **Date** |  | 

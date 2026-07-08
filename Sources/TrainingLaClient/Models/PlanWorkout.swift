@@ -19,14 +19,14 @@ public struct PlanWorkout: Sendable, Codable, Hashable {
     public var orderIndex: Int
     public var status: PlanWorkoutStatus
     /** null＝循環（依 order_index 輪替）；有值＝指定日 */
-    public var date: Date?
+    public var date: String?
     /** 範本來源（複製建立時記錄） */
     public var fromSpecsPlanWorkoutId: UUID?
     public var createdAt: Date
     public var updatedAt: Date
     public var sets: [TargetSet]
 
-    public init(id: UUID, userId: UUID, planId: UUID?, name: String?, orderIndex: Int, status: PlanWorkoutStatus, date: Date?, fromSpecsPlanWorkoutId: UUID?, createdAt: Date, updatedAt: Date, sets: [TargetSet]) {
+    public init(id: UUID, userId: UUID, planId: UUID?, name: String?, orderIndex: Int, status: PlanWorkoutStatus, date: String?, fromSpecsPlanWorkoutId: UUID?, createdAt: Date, updatedAt: Date, sets: [TargetSet]) {
         self.id = id
         self.userId = userId
         self.planId = planId

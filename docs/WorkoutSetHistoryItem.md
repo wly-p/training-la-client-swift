@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  | 
 **workoutId** | **UUID** |  | 
-**date** | **Date** |  | 
+**date** | **String** |  | 
 **exerciseId** | **UUID** |  | 
 **exerciseIndex** | **Int** |  | 
 **setIndex** | **Int** |  | 

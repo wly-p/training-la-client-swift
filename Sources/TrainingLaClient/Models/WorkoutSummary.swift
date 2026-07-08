@@ -14,7 +14,7 @@ public struct WorkoutSummary: Sendable, Codable, Hashable {
     public var userId: UUID
     /** 照哪個排課做；來源被刪時由 DB 設回 null */
     public var planWorkoutId: UUID?
-    public var date: Date
+    public var date: String
     public var startedAt: Date?
     public var endedAt: Date?
     public var overallFeeling: Int?
@@ -22,7 +22,7 @@ public struct WorkoutSummary: Sendable, Codable, Hashable {
     public var createdAt: Date
     public var updatedAt: Date
 
-    public init(id: UUID, userId: UUID, planWorkoutId: UUID?, date: Date, startedAt: Date?, endedAt: Date?, overallFeeling: Int?, note: String?, createdAt: Date, updatedAt: Date) {
+    public init(id: UUID, userId: UUID, planWorkoutId: UUID?, date: String, startedAt: Date?, endedAt: Date?, overallFeeling: Int?, note: String?, createdAt: Date, updatedAt: Date) {
         self.id = id
         self.userId = userId
         self.planWorkoutId = planWorkoutId

@@ -13,14 +13,14 @@ public struct WorkoutInput: Sendable, Codable, Hashable {
     /** 可選；客戶端可自帶 UUID。僅建立時有效，更新時忽略。 */
     public var id: UUID?
     public var planWorkoutId: UUID?
-    public var date: Date
+    public var date: String
     public var startedAt: Date?
     public var endedAt: Date?
     public var overallFeeling: Int?
     public var note: String?
     public var sets: [WorkoutSetInput]?
 
-    public init(id: UUID? = nil, planWorkoutId: UUID? = nil, date: Date, startedAt: Date? = nil, endedAt: Date? = nil, overallFeeling: Int? = nil, note: String? = nil, sets: [WorkoutSetInput]? = nil) {
+    public init(id: UUID? = nil, planWorkoutId: UUID? = nil, date: String, startedAt: Date? = nil, endedAt: Date? = nil, overallFeeling: Int? = nil, note: String? = nil, sets: [WorkoutSetInput]? = nil) {
         self.id = id
         self.planWorkoutId = planWorkoutId
         self.date = date
