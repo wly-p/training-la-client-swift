@@ -77,4 +77,5 @@ jobs:
 
       - name: Summary
         if: always()
-        run: echo "### Next version: ${{ steps.version.outputs.next }}" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "### Next version: ${{ steps.version.outputs.next }}" >> "$GITHUB_STEP_SUMMARY"
