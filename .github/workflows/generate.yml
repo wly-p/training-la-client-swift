@@ -1,0 +1,53 @@
+name: Generate Client
+
+# 手動觸發：從指定的 OpenAPI 契約網址（預設線上 dev API 的 /openapi.yaml，可在觸發時換）
+# 重新產生 Swift client、驗證編譯、commit + 打 tag + push。
+# 版號由觸發者自行指定（獨立於 API repo 的版號，不要重複使用同一個號碼）。
+on:
+  workflow_dispatch:
+    inputs:
+      spec_url:
+        description: "OpenAPI 契約網址"
+        type: string
+        required: true
+        default: "https://training-la-api-dev.wly.lol/openapi.yaml"
+      version:
+        description: "這次要打的 tag（例如 v0.4.0；須未使用過）"
+        type: string
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install openapi-generator
+        run: brew install openapi-generator
+
+      - name: Generate client from contract
+        env:
+          SPEC: ${{ inputs.spec_url }}
+        run: ./gen.sh
+
+      - name: Verify it builds
+        run: swift build
+
+      - name: Commit, tag, and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "no changes from ${{ inputs.spec_url }} — skipping commit/tag"
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "chore: regenerate from ${{ inputs.spec_url }}"
+          git tag "${{ inputs.version }}"
+          git push origin HEAD:main
+          git push origin "${{ inputs.version }}"

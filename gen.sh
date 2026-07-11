@@ -3,8 +3,9 @@
 # 真實來源是契約；本 repo 的 Sources/ 為產出物，勿手改。
 #
 # 用法：
-#   ./gen.sh                                  # 預設讀 ../training_la_api/openapi.yaml
-#   SPEC=/path/to/openapi.yaml ./gen.sh       # 指定契約位置
+#   ./gen.sh                                          # 預設讀 ../training_la_api/openapi.yaml（本機相鄰 repo）
+#   SPEC=/path/to/openapi.yaml ./gen.sh               # 指定本機契約位置
+#   SPEC=https://api.example.com/openapi.yaml ./gen.sh  # 直接從線上契約產生（CI 用這個）
 #
 # 需求：openapi-generator 7.x（brew install openapi-generator）
 set -euo pipefail
@@ -22,8 +23,9 @@ if [[ "${ver%%.*}" != "$GENERATOR_VERSION_MIN" ]]; then
   echo "warning: expected openapi-generator ${GENERATOR_VERSION_MIN}.x, got ${ver}" >&2
 fi
 
-if [[ ! -f "$SPEC" ]]; then
-  echo "error: spec not found at $SPEC (set SPEC=/path/to/openapi.yaml)" >&2
+# openapi-generator 的 -i 本身就吃 URL，本地路徑才需要先檢查存在。
+if [[ "$SPEC" != http://* && "$SPEC" != https://* && ! -f "$SPEC" ]]; then
+  echo "error: spec not found at $SPEC (set SPEC=/path/to/openapi.yaml or a URL)" >&2
   exit 1
 fi
 
