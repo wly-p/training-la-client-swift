@@ -1,10 +1,10 @@
 # SystemAPI
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getHealth**](SystemAPI.md#gethealth) | **GET** /healthz | 健康檢查（含 DB 連線）
+[**getHealth**](SystemAPI.md#gethealth) | **GET** /health | 健康檢查（含 DB 連線）
 
 
 # **getHealth**
@@ -13,6 +13,8 @@ Method | HTTP request | Description
 ```
 
 健康檢查（含 DB 連線）
+
+注意：不是 /healthz——該路徑在 Cloud Run 的 *.run.app 網域被平台邊緣層保留，外部請求會被攔截。
 
 ### Example
 ```swift

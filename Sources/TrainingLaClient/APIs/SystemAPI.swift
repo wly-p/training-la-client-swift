@@ -21,12 +21,13 @@ open class SystemAPI {
 
     /**
      健康檢查（含 DB 連線）
-     - GET /healthz
+     - GET /health
+     - 注意：不是 /healthz——該路徑在 Cloud Run 的 *.run.app 網域被平台邊緣層保留，外部請求會被攔截。
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<GetHealth200Response> 
      */
     open class func getHealthWithRequestBuilder(apiConfiguration: TrainingLaClientAPIConfiguration = TrainingLaClientAPIConfiguration.shared) -> RequestBuilder<GetHealth200Response> {
-        let localVariablePath = "/healthz"
+        let localVariablePath = "/health"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
 

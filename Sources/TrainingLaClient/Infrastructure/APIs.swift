@@ -74,7 +74,7 @@ open class TrainingLaClientAPIConfiguration: @unchecked Sendable {
     // MARK: - Init
 
     public init(
-        basePath: String = "http://localhost:8080",
+        basePath: String = "http://localhost",
         customHeaders: [String: String] = [:],
         credential: URLCredential? = nil,
         requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory(),

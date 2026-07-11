@@ -27,7 +27,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -56,7 +56,7 @@ Class | Method | HTTP request | Description
 *SpecsPlansAPI* | [**getPlanTemplate**](docs/SpecsPlansAPI.md#getplantemplate) | **GET** /v1/specs/plans/{id} | 取得完整範本（含 workouts / sets）
 *SpecsPlansAPI* | [**listPlanTemplates**](docs/SpecsPlansAPI.md#listplantemplates) | **GET** /v1/specs/plans | 列出菜單範本（僅 header，不含 workouts）
 *SpecsPlansAPI* | [**replacePlanTemplate**](docs/SpecsPlansAPI.md#replaceplantemplate) | **PUT** /v1/specs/plans/{id} | 整包取代範本（header 更新；workouts / sets 全數重建）
-*SystemAPI* | [**getHealth**](docs/SystemAPI.md#gethealth) | **GET** /healthz | 健康檢查（含 DB 連線）
+*SystemAPI* | [**getHealth**](docs/SystemAPI.md#gethealth) | **GET** /health | 健康檢查（含 DB 連線）
 *WorkoutSetsAPI* | [**listWorkoutSetsByExercise**](docs/WorkoutSetsAPI.md#listworkoutsetsbyexercise) | **GET** /v1/workout-sets | 某動作的歷史組數（date 新到舊）
 *WorkoutsAPI* | [**createWorkout**](docs/WorkoutsAPI.md#createworkout) | **POST** /v1/workouts | 建立訓練紀錄（workout + sets 整包）
 *WorkoutsAPI* | [**deleteWorkout**](docs/WorkoutsAPI.md#deleteworkout) | **DELETE** /v1/workouts/{id} | 刪除紀錄（級聯刪除其 sets）
