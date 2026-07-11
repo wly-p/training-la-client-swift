@@ -26,6 +26,7 @@ Sources/TrainingLaClient/Infrastructure/URLSessionImplementations.swift
 Sources/TrainingLaClient/Infrastructure/Validation.swift
 Sources/TrainingLaClient/Models/ApiError.swift
 Sources/TrainingLaClient/Models/ApiErrorDetail.swift
+Sources/TrainingLaClient/Models/Equipment.swift
 Sources/TrainingLaClient/Models/Exercise.swift
 Sources/TrainingLaClient/Models/ExerciseInput.swift
 Sources/TrainingLaClient/Models/GetHealth200Response.swift
@@ -55,6 +56,7 @@ Sources/TrainingLaClient/Models/WorkoutSummary.swift
 TrainingLaClient.podspec
 docs/ApiError.md
 docs/ApiErrorDetail.md
+docs/Equipment.md
 docs/Exercise.md
 docs/ExerciseInput.md
 docs/GetHealth200Response.md

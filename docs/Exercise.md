@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **UUID** |  | 
 **name** | **String** |  | 
 **muscleGroup** | [**MuscleGroup**](MuscleGroup.md) |  | 
+**equipment** | [**Equipment**](Equipment.md) |  | 
 **description** | **String** |  | 
 **createdBy** | **UUID** |  | 
 **createdAt** | **Date** |  | 

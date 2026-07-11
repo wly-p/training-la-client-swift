@@ -13,15 +13,17 @@ public struct Exercise: Sendable, Codable, Hashable {
     public var id: UUID
     public var name: String
     public var muscleGroup: MuscleGroup
+    public var equipment: Equipment
     public var description: String?
     public var createdBy: UUID
     public var createdAt: Date
     public var updatedAt: Date
 
-    public init(id: UUID, name: String, muscleGroup: MuscleGroup, description: String?, createdBy: UUID, createdAt: Date, updatedAt: Date) {
+    public init(id: UUID, name: String, muscleGroup: MuscleGroup, equipment: Equipment, description: String?, createdBy: UUID, createdAt: Date, updatedAt: Date) {
         self.id = id
         self.name = name
         self.muscleGroup = muscleGroup
+        self.equipment = equipment
         self.description = description
         self.createdBy = createdBy
         self.createdAt = createdAt
@@ -32,6 +34,7 @@ public struct Exercise: Sendable, Codable, Hashable {
         case id
         case name
         case muscleGroup = "muscle_group"
+        case equipment
         case description
         case createdBy = "created_by"
         case createdAt = "created_at"
@@ -45,6 +48,7 @@ public struct Exercise: Sendable, Codable, Hashable {
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(muscleGroup, forKey: .muscleGroup)
+        try container.encode(equipment, forKey: .equipment)
         try container.encode(description, forKey: .description)
         try container.encode(createdBy, forKey: .createdBy)
         try container.encode(createdAt, forKey: .createdAt)

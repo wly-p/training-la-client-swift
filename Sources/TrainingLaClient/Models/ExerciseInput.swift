@@ -14,12 +14,14 @@ public struct ExerciseInput: Sendable, Codable, Hashable {
     public var id: UUID?
     public var name: String
     public var muscleGroup: MuscleGroup
+    public var equipment: Equipment
     public var description: String?
 
-    public init(id: UUID? = nil, name: String, muscleGroup: MuscleGroup, description: String? = nil) {
+    public init(id: UUID? = nil, name: String, muscleGroup: MuscleGroup, equipment: Equipment, description: String? = nil) {
         self.id = id
         self.name = name
         self.muscleGroup = muscleGroup
+        self.equipment = equipment
         self.description = description
     }
 
@@ -27,6 +29,7 @@ public struct ExerciseInput: Sendable, Codable, Hashable {
         case id
         case name
         case muscleGroup = "muscle_group"
+        case equipment
         case description
     }
 
@@ -37,6 +40,7 @@ public struct ExerciseInput: Sendable, Codable, Hashable {
         try container.encodeIfPresent(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(muscleGroup, forKey: .muscleGroup)
+        try container.encode(equipment, forKey: .equipment)
         try container.encodeIfPresent(description, forKey: .description)
     }
 }

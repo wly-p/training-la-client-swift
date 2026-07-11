@@ -164,7 +164,7 @@ open class SpecsExercisesAPI {
     }
 
     /**
-     更新動作（整筆取代 name / muscle_group / description）
+     更新動作（整筆取代 name / muscle_group / equipment / description）
      
      - parameter id: (path)  
      - parameter exerciseInput: (body)  
@@ -176,7 +176,7 @@ open class SpecsExercisesAPI {
     }
 
     /**
-     更新動作（整筆取代 name / muscle_group / description）
+     更新動作（整筆取代 name / muscle_group / equipment / description）
      - PUT /v1/specs/exercises/{id}
      - parameter id: (path)  
      - parameter exerciseInput: (body)  
