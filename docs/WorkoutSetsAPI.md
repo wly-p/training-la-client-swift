@@ -1,6 +1,6 @@
 # WorkoutSetsAPI
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://training-la-api-dev.wly.lol*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

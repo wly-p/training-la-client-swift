@@ -27,7 +27,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://training-la-api-dev.wly.lol*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
